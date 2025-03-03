@@ -1,0 +1,92 @@
+{
+  "name": "blog-admin",
+  "version": "0.0.0",
+  "description": "vue3 blog admin",
+  "author": "Peng",
+  "scripts": {
+    "dev": "vite --force",
+    "build": "vite build",
+    "build:prod": "node --max_old_space_size=2048 ./node_modules/vite/bin/vite.js build",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/",
+    "serve": "http-server ./dist -p 8000",
+    "format": "npx prettier --write ./src/",
+    "push": "git push origin && git push origin2"
+  },
+  "dependencies": {
+    "element-plus": "^2.9.1",
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vavt/md-editor-extension": "^3.0.0",
+    "@vue/compiler-sfc": "^3.5.12",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "next",
+    "aieditor": "1.0.0",
+    "clipboard": "^2.0.11",
+    "crypto-js": "^4.2.0",
+    "echarts": "^5.5.1",
+    "file-saver": "^2.0.5",
+    "js-cookie": "^3.0.5",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.1",
+    "nprogress": "^0.2.0",
+    "p-limit": "^6.1.0",
+    "pinia-plugin-persistedstate": "^3.2.3",
+    "qrcodejs2-fixes": "^0.0.2",
+    "qs": "^6.13.0",
+    "screenfull": "^6.0.2",
+    "sortablejs": "^1.15.3",
+    "spark-md5": "^3.0.2",
+    "v-viewer": "^3.0.21",
+    "viewerjs": "^1.11.6",
+    "vue-clipboard3": "^2.0.0",
+    "vue-cropper": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/event-source-polyfill": "^1.0.5",
+    "@types/file-saver": "^2.0.7",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^18.19.64",
+    "@types/nprogress": "^0.2.3",
+    "@types/sanitize-html": "^2.13.0",
+    "@types/spark-md5": "^3.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitejs/plugin-vue": "^4.6.2",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "unocss": "^0.55.7",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-vue-components": "^0.27.4",
+    "unplugin-vue-define-options": "^1.5.2",
+    "vite-plugin-compression": "^0.5.1",
+    "vue-eslint-parser": "^9.4.3"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">= 7.0.0"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "element-ui",
+    "element-plus",
+    "vue-next-admin",
+    "next-admin",
+    "blog-admin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Peng1203/re-blog-admin.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

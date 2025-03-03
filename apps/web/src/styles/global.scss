@@ -1,0 +1,30 @@
+.card {
+  @apply bg-white shadow-md rounded-lg p-6;
+}
+
+/* 渐变背景 */
+// .card {
+//   /* background: linear-gradient(145deg, #ffffff, #f3f4f6); */
+//   background: rgba(255, 255, 255, 0.2);
+//   /* 半透明的白色背景 */
+//   backdrop-filter: blur(10px) saturate(150%);
+//   /* 模糊和饱和度增加 */
+//   -webkit-backdrop-filter: blur(10px) saturate(150%);
+//   border-radius: 15px;
+//   /* 圆角边框 */
+//   padding: 20px;
+//   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+//   /* 添加轻微阴影增加视觉层次 */
+//   border: 1px solid rgba(255, 255, 255, 0.3);
+//   /* 轻微的边框让卡片边缘更柔和 */
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
+//   /* 添加过渡效果使交互更自然 */
+// }
+
+
+/* 悬停时的放大效果和阴影增强 */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}

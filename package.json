@@ -1,0 +1,32 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm run -C apps/web dev",
+    "dev:admin": "pnpm run -C apps/web-admin dev",
+    "dev:server": "pnpm run -C apps/server dev"
+  },
+  "dependencies": {
+    "pinia": "^2.3.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
+    "element-plus": "^2.9.1",
+    "md-editor-v3": "^4.21.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.80.6",
+    "typescript": "^5.6.3",
+    "vite-plugin-vue-devtools": "^7.6.3",
+    "vite": "^5.4.10"
+  },
+  "keywords": [],
+  "author": "Peng",
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+/* 默认主题变量 */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #1a73e8;
+  --secondary-color: #f1f3f4;
+  --border-color: #e0e0e0;
+  --card-bg-c: #ffffff;
+}
+
+/* 暗黑主题变量 */
+html.dark {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #bb86fc;
+  --secondary-color: #1f1f1f;
+  --border-color: #333333;
+  --card-bg-c: #1e2836;
+}
