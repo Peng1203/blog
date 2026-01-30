@@ -30,7 +30,7 @@ interface CompressOptions {
 /** 压缩图片 无法压缩gif图 */
 export const compressImage = (
   file: File,
-  options: CompressOptions = { quality: 0.5, outputType: 'webp' }
+  options: CompressOptions = { quality: 0.8, outputType: 'webp' }
 ): Promise<string | Blob> => {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async resolve => {

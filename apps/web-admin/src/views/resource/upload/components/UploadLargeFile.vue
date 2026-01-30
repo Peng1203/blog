@@ -46,7 +46,6 @@ const SLICE_SIZE = MB * 2
 // 文件
 const UPLOAD_RECORD_CATCH_LOCAL_KEY = 'uploadRecords'
 const uploadRecordCatch = computed(() => Local.get(UPLOAD_RECORD_CATCH_LOCAL_KEY) || [])
-console.log('uploadRecordCatch ------', uploadRecordCatch.value)
 // 选中大文件
 const handleFileChange = async (file: File) => {
   // , maxFileSize = LARGE_FILE_MAX_SIZE_VALUE
@@ -94,8 +93,9 @@ const handleUploadLargeFile = async (fileItem: FileData) => {
       fileItem.status = StatusEnum.CALC_HASH
       const arrayBuffer = await getFileArrayBuffer(fileData)
       if (!fileItem.fileHash) {
-        const fileHash = await getFileHash(arrayBuffer)
-        fileItem.fileHash = fileHash
+        // TODO 待优化 当选择文件过大是 计算hash时间会很长 耽误文件上传
+        // const fileHash = await getFileHash(arrayBuffer)
+        fileItem.fileHash = crypto.randomUUID()
       }
     }
 
@@ -117,8 +117,8 @@ const handleUploadLargeFile = async (fileItem: FileData) => {
 
       const paramsArr = uploadChunks.map(chunk => ({
         chunk,
-        uploadId: getUploadId(fileItem),
         fileItem,
+        uploadId: getUploadId(fileItem),
       }))
 
       const request = params =>

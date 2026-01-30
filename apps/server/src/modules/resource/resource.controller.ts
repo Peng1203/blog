@@ -36,7 +36,7 @@ export class ResourceController {
   constructor(private readonly resourceService: ResourceService, private readonly configService: ConfigService) {}
 
   private readonly MAX_SIZE: number = 5
-  private readonly UPLOAD_ROOT_DIR: string = path.join(process.cwd(), 'uploads')
+  private readonly UPLOAD_CHUNKS_DIR: string = path.join(process.cwd(), 'uploads')
   private readonly STATIC_RESOURCE_PATH: string = this.configService.get<string>('STATIC_RESOURCE_PATH')
   private readonly STATIC_RESOURCE_SERVE: string = this.configService.get<string>('STATIC_RESOURCE_SERVE')
 
@@ -79,6 +79,13 @@ export class ResourceController {
   @RequirePermissions(PermissionEnum.UPLOAD_RESOURCE)
   @ApiOperation({ summary: '创建或检查分片上传目录，并支持断点续传' })
   async createChunkDir(@Body() data: CreateFileDirDto) {
+    // 如果 uploads 不存在手动创建目录
+    const uploadDirExists = await fs
+      .access(this.UPLOAD_CHUNKS_DIR)
+      .then(() => true)
+      .catch(() => false)
+    if (!uploadDirExists) await fs.mkdir(this.UPLOAD_CHUNKS_DIR)
+
     const UPLOAD_DIR = path.join(process.cwd(), 'uploads', data.uploadId)
     const existingChunks = await fs.readdir(UPLOAD_DIR).catch(() => false)
     if (existingChunks) {
@@ -121,7 +128,7 @@ export class ResourceController {
   })
   async mergeFileChunks(@Body() data: MergeFileChunksDto) {
     try {
-      const targetDir = path.join(this.UPLOAD_ROOT_DIR, data.uploadId)
+      const targetDir = path.join(this.UPLOAD_CHUNKS_DIR, data.uploadId)
       const dirResult = await fs.readdir(targetDir)
       const { fileName, extName } = data
 
